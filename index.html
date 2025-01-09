@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvoinData Haku</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .data-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f4f4f4;
+    }
+    .data-item h3 {
+      margin: 0 0 10px;
+    }
+    .data-item a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .data-item a:hover {
+      text-decoration: underline;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+    color: #8171c5;
+    text-decoration: underline;
+    }
+
+    a:hover {
+      color: #3407fd;
+    }
+    #load-more {
+    margin-top: 20px;
+    display: none; /* Aluksi piilotettu */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px; /* Nappula on 20px etäisyydellä alareunasta */
+    left: 50%;
+    transform: translateX(-50%); /* Keskittää nappulan vaakasuunnassa */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AvoinData Haku: <a href="https://www.avoindata.fi" style="text-decoration: underline;" target="_blank">Avoindata.fi</a></h1>
+    <p>Hae esim Lappeenranta:</p>
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Kirjoita hakusana, esim. Lappeenranta" required>
+      <button type="submit">Hae</button>
+    </form>
+
+    <!-- Nappula JSON-tiedoston lataamista varten -->
+    <div class="button-container">
+      <button id="download-json" style="margin-top: 5px;">Lataa JSON</button>
+    </div>
+
+    <div id="data-container" style="margin-top: 20px;"></div>
+  </div>
+
+  <!-- Hakutulokset -->
+  <div id="data-container"></div>
+
+<!-- Nappula uusien hakutulosten hakemiseksi -->
+<button id="load-more" style="margin-top: 20px; display: none; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 200px; text-align: center;">Lisää tuloksia</button>
+  <!-- Linkitetään JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
